@@ -3,12 +3,9 @@ package com.mujeeb.lastfm.di.module;
 import android.app.Application;
 
 import com.mujeeb.lastfm.api.LastApiCall;
-import com.mujeeb.lastfm.di.qualifier.HttpLoggingInterceptor;
-import com.mujeeb.lastfm.di.qualifier.LastApiInterceptor;
-import com.mujeeb.lastfm.di.qualifier.Remote;
+import com.mujeeb.lastfm.di.qualifier.ApiInterceptor;
+import com.mujeeb.lastfm.di.qualifier.LoggingInterceptor;
 import com.mujeeb.lastfm.di.scope.ApplicationScope;
-import com.mujeeb.lastfm.repository.AlbumDataSource;
-import com.mujeeb.lastfm.repository.AlbumRemoteDataSource;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +16,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -45,8 +43,8 @@ public class NetworkModule {
     @Provides
     @ApplicationScope
     public OkHttpClient provideOkHttpClient(Cache cache,
-                                            @HttpLoggingInterceptor Interceptor httpLoggingInterceptor,
-                                            @LastApiInterceptor Interceptor apiInterceptor) {
+                                            @LoggingInterceptor Interceptor httpLoggingInterceptor,
+                                            @ApiInterceptor Interceptor apiInterceptor) {
         return new OkHttpClient.Builder()
                 .addInterceptor(apiInterceptor)
                 .addInterceptor(httpLoggingInterceptor)
@@ -57,14 +55,14 @@ public class NetworkModule {
     }
 
     @Provides
-    @HttpLoggingInterceptor
+    @LoggingInterceptor
     @ApplicationScope
     public Interceptor provideHttpLoggingInterceptor() {
-        return new okhttp3.logging.HttpLoggingInterceptor().setLevel(okhttp3.logging.HttpLoggingInterceptor.Level.BODY);
+        return new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 
     @Provides
-    @LastApiInterceptor
+    @ApiInterceptor
     @ApplicationScope
     public Interceptor provideApiInterceptor() {
         return chain -> {
@@ -93,11 +91,5 @@ public class NetworkModule {
         return retrofit.create(LastApiCall.class);
     }
 
-    @Provides
-    @Remote
-    @ApplicationScope
-    public AlbumDataSource provideRemoteDataSource(LastApiCall lastFMApiCall) {
-        return new AlbumRemoteDataSource(lastFMApiCall);
-    }
 
 }

@@ -11,6 +11,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 
+
 public class LastFMApp extends Application implements HasActivityInjector {
 
     @Inject
@@ -19,6 +20,7 @@ public class LastFMApp extends Application implements HasActivityInjector {
     @Override
     public void onCreate() {
         super.onCreate();
+
         DaggerAppComponent.builder()
                 .application(this)
                 .build()

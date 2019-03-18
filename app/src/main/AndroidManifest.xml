@@ -27,6 +27,10 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".view.albumInfo.AlbumInfoActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

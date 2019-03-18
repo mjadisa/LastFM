@@ -7,8 +7,8 @@ public class ConstantString {
     public static final String FORMAT = "json";
     public static final String ALBUM_GET_INFO = "album.getInfo";
     public static final String ALBUM_SEARCH = "album.search";
-    public static final String ARTIST = "album_artist";
-    public static final String ALBUM_NAME = "album_name";
+    public static final String ARTIST_KEY = "artist_key";
+    public static final String ALBUM_KEY = "album_key";
     public static final int TIMEOUT_REQUEST = 30;
     public static final int RESULTS_PER_PAGE = 30;
     public static final int CACHE_SIZE = 5 * 1024 * 1024;

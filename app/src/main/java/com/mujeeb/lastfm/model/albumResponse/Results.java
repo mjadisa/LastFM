@@ -10,13 +10,13 @@ public class Results {
     private OpensearchQuery opensearchQuery;
     @SerializedName("opensearch:totalResults")
     @Expose
-    private String opensearchTotalResults;
+    private int opensearchTotalResults;
     @SerializedName("opensearch:startIndex")
     @Expose
-    private String opensearchStartIndex;
+    private int opensearchStartIndex;
     @SerializedName("opensearch:itemsPerPage")
     @Expose
-    private String opensearchItemsPerPage;
+    private int opensearchItemsPerPage;
     @SerializedName("albummatches")
     @Expose
     private Albummatches albummatches;
@@ -28,40 +28,24 @@ public class Results {
         return opensearchQuery;
     }
 
-    public void setOpensearchQuery(OpensearchQuery opensearchQuery) {
-        this.opensearchQuery = opensearchQuery;
-    }
 
-    public String getOpensearchTotalResults() {
+    public int getOpensearchTotalResults() {
         return opensearchTotalResults;
     }
 
-    public void setOpensearchTotalResults(String opensearchTotalResults) {
-        this.opensearchTotalResults = opensearchTotalResults;
-    }
 
-    public String getOpensearchStartIndex() {
+    public int getOpensearchStartIndex() {
         return opensearchStartIndex;
     }
 
-    public void setOpensearchStartIndex(String opensearchStartIndex) {
-        this.opensearchStartIndex = opensearchStartIndex;
-    }
 
-    public String getOpensearchItemsPerPage() {
+    public int getOpensearchItemsPerPage() {
         return opensearchItemsPerPage;
     }
 
-    public void setOpensearchItemsPerPage(String opensearchItemsPerPage) {
-        this.opensearchItemsPerPage = opensearchItemsPerPage;
-    }
 
     public Albummatches getAlbummatches() {
         return albummatches;
-    }
-
-    public void setAlbummatches(Albummatches albummatches) {
-        this.albummatches = albummatches;
     }
 
     public Attr getAttr() {

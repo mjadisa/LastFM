@@ -8,7 +8,7 @@ import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class BuildHomeActivityModule {
-    @ContributesAndroidInjector(modules = {HomeModule.class, AdapterModule.class})
+    @ContributesAndroidInjector(modules = {HomeActivityModule.class, AdapterModule.class})
     @HomeScope
     abstract HomeActivity homeActivity();
 }
