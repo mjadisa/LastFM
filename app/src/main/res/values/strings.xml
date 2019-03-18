@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LastFM</string>
+    <string name="search_title">Search for an Album</string>
+    <string name="search_hint">Please enter an album name</string>
+
+    <string name="album_name_label">Album Name: %s</string>
+    <string name="artist_name_label">Artist Name: %s</string>
+    <string name="wiki_label">Wiki: %s</string>
+    <string name="cd_iv_album_art">Album Art</string>
+</resources>
+
